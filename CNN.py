@@ -18,7 +18,8 @@ class CNN(nn.Module):
         for _ in range(num_conv_layers):
             conv_layer = nn.Conv2d(in_channels=num_in,
                                    out_channels=num_out,
-                                   kernel_size=kernel_size)
+                                   kernel_size=kernel_size,
+                                   padding=kernel_size//2)
             conv_layers.append(conv_layer)
             num_in = num_out
             num_out = num_out * 2
