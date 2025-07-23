@@ -10,6 +10,8 @@ class CNN(nn.Module):
                  kernel_size: int=3,
                  num_classes: int=2):
         super().__init__()
+        assert image_size // (2**num_conv_layers) >= kernel_size, \
+            "Pooling will reduce size to be smaller than kernel size."
         self.image_size = image_size
         # get convolution layers
         num_in = 3
